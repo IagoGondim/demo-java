@@ -7,19 +7,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import com.gondim.demo.domain.Categoria;
-import com.gondim.demo.services.CategoriaService;
+import com.gondim.demo.domain.Cliente;
+import com.gondim.demo.services.ClienteService;
 
 @RestControllerAdvice
-@RequestMapping(value = "/categorias")
-public class CategoriaResources {
+@RequestMapping(value = "/clientes")
+public class ClienteResources {
 
 	@Autowired
-	private CategoriaService service;
+	private ClienteService service;
 	
 	@RequestMapping(value="/{id}",method = RequestMethod.GET)
 	public ResponseEntity<?> find(@PathVariable Integer id) {
-		Categoria obj = service.buscar(id);
+		Cliente obj = service.buscar(id);
 		return ResponseEntity.ok().body(obj);
 	}
 }
