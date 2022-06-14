@@ -11,6 +11,7 @@ import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.gondim.demo.domain.Categoria;
+import com.gondim.demo.dto.CategoriaDTO;
 import com.gondim.demo.repositories.CategoriaRepository;
 import com.gondim.demo.services.exceptions.DataIntegrityException;
 import com.gondim.demo.services.exceptions.ObjectNotFoundException;
@@ -57,4 +58,8 @@ public class CategoriaService {
 		return repo.findAll(pageRequest);
 	}
 
+	public Categoria fromDTO(CategoriaDTO objDto) {
+		return new Categoria(objDto.getId(), objDto.getNome());
+	}
+	
 }
